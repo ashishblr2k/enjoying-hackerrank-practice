@@ -5,40 +5,28 @@ import java.util.*;
 
 public class Day25 {
 
-	
-	public static void main(String args[])
-	{
-		Scanner sc=new Scanner(System.in);
-		int T=sc.nextInt();
-		while(T-->0){
-			int ele=sc.nextInt();
-			isPrimeNumber(ele);
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int p = scan.nextInt();
+		for (int a0 = 0; a0 < p; a0++) {
+			int n = scan.nextInt();
+			System.out.println(isPrime(n) ? "Prime" : "Not prime");
 		}
-		
+		scan.close();
 	}
 
-	private static void isPrimeNumber(int ele) {
-		if(ele == 1){
-			System.out.println("Not prime");
-		}else{
-		int temp;
-		boolean isPrime=true;
-		int num = ele;
-		for(int i=2;i<=num/2;i++)
-		{
-	           temp=num%i;
-		   if(temp==0)
-		   {
-		      isPrime=false;
-		      break;
-		   }
+	public static boolean isPrime (int n) {
+		if (n < 2) {
+			return false;
 		}
-		//If isPrime is true then the number is prime else not
-		if(isPrime)
-		   System.out.println("Prime");
-		else
-		   System.out.println("Not prime");
-	}
+		int sqrt = (int) Math.sqrt(n);
+		for (int i = 2; i <= sqrt; i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
 	}
 	
 
